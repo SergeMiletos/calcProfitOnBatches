@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controllers SYSTEM "dtds/controllers.dtd">
+
+<controllers>
+    
+    <!-- Environment variable:
+    <env-var name="calcProfitOnBatches_DEFAULT_YEAR" value="2015"/> 
+    -->
+    
+    <!-- Session object:
+    <object name="calcProfitOnBatches_activeYear" class="java.lang.Integer" value="2015" 
+    	    scope="global"/>    
+    -->
+    
+    <!-- Controller:
+    <controller name="Teacher">
+    	<extends controller="Typical"/>
+    	<action name="new" icon="library-plus" keystroke="Control N"
+        	class="actions.CreateTeacher">
+    	</action>
+	</controller>    
+    -->
+    <controller name="BatchOfGood">
+
+        <extends controller="Typical"/>
+
+        <action name="LoadBatchesData"
+                mode="list" confirm="false"
+                class="com.agzr.calcProfitOnBatches.actions.LoadBatchesData"
+                available-on-new="false"/>
+
+    </controller>
+
+    <controller name="SalesRecords">
+
+        <extends controller="Typical"/>
+
+        <action name="LoadSalesData"
+                mode="list" confirm="false"
+                class="com.agzr.calcProfitOnBatches.actions.LoadSalesData"
+                available-on-new="false"/>
+
+        <action name="AnalyzeProfit"
+                mode="list" confirm="false"
+                class="com.agzr.calcProfitOnBatches.actions.CountSalesProfitAction"
+                available-on-new="false"/>
+
+        <action name="AnalyzePrintProfit"
+                mode="list" confirm="false"
+                class="com.agzr.calcProfitOnBatches.actions.PrintProfitReportAction"
+                available-on-new="false"/>
+
+    </controller>
+
+</controllers>
